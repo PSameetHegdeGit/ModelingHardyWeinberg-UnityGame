@@ -17,11 +17,29 @@ public class Agent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (agent.velocity == Vector3.zero) {
+            StartCoroutine(translate());
+
+        }
+    }
+
+    IEnumerator translate()
+    {
+   
         var x = Random.Range(-16.37f, 16.37f);
         var z = Random.Range(-16.37f, 16.37f);
-        var y = 0f;
+        var y = Random.Range(-16.37f, 16.37f);
 
-        agent.SetDestination(new Vector3(x, y, z));
+        var newPosition = new Vector3(x, y, z);
 
+        agent.SetDestination(newPosition);
+
+        //while (agent.transform.position != newPosition)
+        //{
+        //    continue;
+        //}
+
+        yield return new WaitForSeconds(3);
     }
+
 }
