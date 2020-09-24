@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Net.Http;
+using Newtonsoft.Json;
 
 public class Submit : MonoBehaviour
 {
@@ -41,7 +42,18 @@ public class Submit : MonoBehaviour
                 // by calling .Result you are synchronously reading the result
                 string responseString = responseContent.ReadAsStringAsync().Result;
 
-                print(responseString);
+
+                var values = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string,string>>>(responseString);
+
+                foreach(KeyValuePair<string, Dictionary<string, string>> item in values)
+                {
+                    print(item.Key);
+                    foreach(KeyValuePair<string, string> item2 in item.Value)
+                    {
+                        print(item2.Key);
+                        print(item2.Value);
+                    }
+                }
             }
         }
 
