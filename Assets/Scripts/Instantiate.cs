@@ -10,10 +10,10 @@ public class Instantiate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 100; i++)
         {
-            var x = Random.Range(-16.37f, 16.37f);
-            var z = Random.Range(-16.37f, 16.37f);
+            var x = Random.Range(-39f, 39f);
+            var z = Random.Range(-39f, 39f);
             var y = 0f;
 
             var startPosition = new Vector3(x, y, z);

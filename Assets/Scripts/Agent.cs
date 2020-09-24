@@ -26,9 +26,9 @@ public class Agent : MonoBehaviour
     IEnumerator translate()
     {
    
-        var x = Random.Range(-16.37f, 16.37f);
-        var z = Random.Range(-16.37f, 16.37f);
-        var y = Random.Range(-16.37f, 16.37f);
+        var x = Random.Range(-37f, 37f);
+        var z = Random.Range(-37f, 37f);
+        var y = 0f;
 
         var newPosition = new Vector3(x, y, z);
 
@@ -39,7 +39,7 @@ public class Agent : MonoBehaviour
         //    continue;
         //}
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
     }
 
 }
